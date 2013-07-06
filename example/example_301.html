@@ -1,0 +1,188 @@
+<html>
+<head>
+    <style>
+    .player {
+        background-color: white;
+    }
+
+    .first {
+        background-color: blue;
+    }
+
+    </style>
+</head>
+<body>
+
+    <table border='1'>
+        <tr>
+            <td>Round</td>
+            <td>Player1</td>
+            <td>Player2</td>
+        </tr>
+        <tr>
+            <td id='round'>1</td>
+            <td id='player1' class='player first'>0</td>
+            <td id='player2' class='player'>0</td>
+        </tr>
+    </table>
+
+
+    <table border='1'>
+        <tr>
+            <td>value</td>
+            <td>double</td>
+            <td>tdiple</td>
+        </tr>
+        <tr>
+            <td><div name="bull">Iris</div></td>
+            <td><div name="bull" class="double">Bull</div></td>
+            <td><div name="bull" class="triple"></div></td>
+        </tr>
+        <tr>
+            <td><div name="twenty">20</div></td>
+            <td><div name="twenty" class="double">x</div></td>
+            <td><div name="twenty" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="nineteen">19</div></td>
+            <td><div name="nineteen" class="double">x</div></td>
+            <td><div name="nineteen" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="eighteen">18</div></td>
+            <td><div name="eighteen" class="double">x</div></td>
+            <td><div name="eighteen" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="seventeen">17</div></td>
+            <td><div name="seventeen" class="double">x</div></td>
+            <td><div name="seventeen" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="sixteen">16</div></td>
+            <td><div name="sixteen" class="double">x</div></td>
+            <td><div name="sixteen" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="fifteen">15</div></td>
+            <td><div name="fifteen" class="double">x</div></td>
+            <td><div name="fifteen" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="fourteen">14</div></td>
+            <td><div name="fourteen" class="double">x</div></td>
+            <td><div name="fourteen" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="thirteen">13</div></td>
+            <td><div name="thirteen" class="double">x</div></td>
+            <td><div name="thirteen" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="twelve">12</div></td>
+            <td><div name="twelve" class="double">x</div></td>
+            <td><div name="twelve" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="eleven">11</div></td>
+            <td><div name="eleven" class="double">x</div></td>
+            <td><div name="eleven" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="ten">10</div></td>
+            <td><div name="ten" class="double">x</div></td>
+            <td><div name="ten" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="nine">9</div></td>
+            <td><div name="nine" class="double">x</div></td>
+            <td><div name="nine" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="eight">8</div></td>
+            <td><div name="eight" class="double">x</div></td>
+            <td><div name="eight" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="seven">7</div></td>
+            <td><div name="seven" class="double">x</div></td>
+            <td><div name="seven" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="six">6</div></td>
+            <td><div name="six" class="double">x</div></td>
+            <td><div name="six" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="five">5</div></td>
+            <td><div name="five" class="double">x</div></td>
+            <td><div name="five" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="four">4</div></td>
+            <td><div name="four" class="double">x</div></td>
+            <td><div name="four" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="three">3</div></td>
+            <td><div name="three" class="double">x</div></td>
+            <td><div name="three" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="two">2</div></td>
+            <td><div name="two" class="double">x</div></td>
+            <td><div name="two" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="one">1</div></td>
+            <td><div name="one" class="double">x</div></td>
+            <td><div name="one" class="triple">x</div></td>
+        </tr>
+        <tr>
+            <td><div name="zero">0</div></td>
+            <td><div name="zero" class="double">x</div></td>
+            <td><div name="zero" class="triple">x</div></td>
+        </tr>
+    </table>
+
+</body>
+
+  <script src="../js_extensions.js"></script>
+  <script src="../board.js"></script>
+  <script src="../dart.js"></script>
+  <script src="../round.js"></script>
+  <script src="../player.js"></script>
+  <script src="../game.js"></script>
+  <script src="../game_01.js"></script>
+
+  <script type="text/javascript">
+  game = new Game_01(['Player1', 'Player2'], 3);
+
+    game.updateView = function() {
+        roundDisplay     = document.getElementById('round');
+        playerOneDisplay = document.getElementById('player1');
+        playerTwoDisplay = document.getElementById('player2');
+
+        roundDisplay.innerHTML = this.round;
+        playerOneDisplay.innerHTML = this.playerScoreByIndex(0);
+        playerTwoDisplay.innerHTML = this.playerScoreByIndex(1);
+
+        if(this.winner != undefined) {
+            alert('Player Number' + this.winner + 1 + ' wins!');
+        }
+
+        if(this.playerTurn == 0) {
+            playerOneDisplay.style.backgroundColor = 'blue';
+            playerTwoDisplay.style.backgroundColor =' white';
+        }
+        else {
+            playerOneDisplay.style.backgroundColor = 'white';
+            playerTwoDisplay.style.backgroundColor = 'blue';
+
+        }
+    }
+  </script>
+
+</body>
+</html>
+
