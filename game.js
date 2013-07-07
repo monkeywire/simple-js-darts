@@ -1,3 +1,11 @@
+/* The main Game class
+ * All variations of darts are derived from this class.
+ * This is the main game 'loop', though it is not actually a loop.
+ * The addDart method should be called every time a player throws a dart.
+ *
+ * This class contains many helper methods to track the progress and
+ * status of the game.
+ */
 function Game(playerNames) {
     this.players = new Array();
 
@@ -54,8 +62,11 @@ Game.prototype.currentPlayerName = function() {
     return this.currentPlayer().playerName;
 }
 
+// A callback method called after the game adds the new dart
 Game.prototype.updateView = function() { /*empty*/ }
 
+/* You must override these methods in the game variation class. */
+// All player is winner checks call this method.
 Game.prototype.currentPlayerIsWiner = function() { /*empty*/ }
-
-Game.prototype.playerScore = function() { /*empty*/ }
+// All score checks call this method.
+Game.prototype.playerScore = function(player) { /*empty*/ }

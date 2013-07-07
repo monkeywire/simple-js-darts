@@ -1,3 +1,10 @@
+/* The Round class keeps track or all round
+ * specific actions and data.
+ *
+ * Round is a member of the player class so that
+ * each player keeps track of it's own rounds.
+ */
+
 function Round() {
     this.darts = new Array();
 }

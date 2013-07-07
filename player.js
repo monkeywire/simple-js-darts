@@ -1,3 +1,5 @@
+/* The player class
+ * This class keeps track of all player specific actions, and data */
 function Player(game, playerName) {
     this.playerName = playerName;
     this.game = game;
@@ -25,6 +27,8 @@ Player.prototype.endRound = function() {
 }
 
 Player.prototype.score = function() {
+    //Calls back to the game class since if the
+    //players score depends on the game rules
     return this.game.playerScore(this);
 }
 
@@ -33,5 +37,7 @@ Player.prototype.currentRound = function() {
 }
 
 Player.prototype.isWinner = function() {
+    //Calls back to the game class since if the player is
+    //a winner depends on the game rules
     return this.game.isPlayerWinner(this);
 }

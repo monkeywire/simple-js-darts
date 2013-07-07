@@ -1,3 +1,7 @@
+/* The Game_01 Class
+ * This extends the Game class.  This class holds
+ * all the rules for the x01 dart game variation.
+ */
 Game_01.prototype = new Game(new Array());
 
 function Game_01(playerNames, gameScore) {
