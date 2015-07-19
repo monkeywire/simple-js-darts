@@ -44,7 +44,7 @@ Game_01.prototype.roundIsBust = function() {
     if(dartsThrown &&  player.score() == 0)
         return false;
 
-    if(player.score() == player.scoreAfterLastRound && dartsThrown)
+    if(player.currentRound().score > 0 && player.score() == player.scoreAfterLastRound && dartsThrown)
         return true;
 
     return false;
