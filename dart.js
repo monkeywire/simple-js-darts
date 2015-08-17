@@ -20,3 +20,5 @@ function Dart(name, score, isDouble) {
         return this.name;
     }
 }
+
+module.exports = Dart;

@@ -6,6 +6,9 @@
  * This class contains many helper methods to track the progress and
  * status of the game.
  */
+ var Dart = require("./dart");
+ var Player = require("./player");
+
 function Game(playerNames) {
     this.players = new Array();
 
@@ -13,7 +16,8 @@ function Game(playerNames) {
     this.round = 1;
     this.winner = undefined;
     this.updateView = function() {};
-
+    this.playerNames = playerNames;
+    
     var that = this;
     playerNames.forEach(function(playerName) {
         that.players.push(new Player(that, playerName));
@@ -54,7 +58,7 @@ Game.prototype.nextPlayer = function() {
 }
 
 Game.prototype.playerScoreByIndex = function(index) {
-    player = this.players[index];
+    var player = this.players[index];
     return this.playerScore(player);
 }
 
@@ -70,3 +74,5 @@ Game.prototype.updateView = function() { /*empty*/ }
 Game.prototype.currentPlayerIsWiner = function() { /*empty*/ }
 // All score checks call this method.
 Game.prototype.playerScore = function(player) { /*empty*/ }
+
+module.exports = Game;

@@ -1,5 +1,8 @@
 /* The player class
  * This class keeps track of all player specific actions, and data */
+ var Dart = require("./dart");
+ var Round = require("./round");
+
 function Player(game, playerName) {
     this.playerName = playerName;
     this.game = game;
@@ -41,3 +44,5 @@ Player.prototype.isWinner = function() {
     //a winner depends on the game rules
     return this.game.isPlayerWinner(this);
 }
+
+module.exports = Player;

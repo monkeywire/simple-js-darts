@@ -2,6 +2,9 @@
  * This extends the Game class.  This class holds
  * all the rules for the x01 dart game variation.
  */
+ var Game = require("./game");
+ var Player = require("./player");
+ 
 Game_01.prototype = new Game(new Array());
 
 function Game_01(playerNames, gameScore) {
@@ -55,3 +58,46 @@ Game_01.prototype.roundIsComplete = function() {
 
     return threeDartsThrown || this.roundIsBust();
 }
+
+Game_01.prototype.saveState = function() {
+    var i = 0;
+    var players = new Array();
+    this.players.forEach(function(player) {
+        players.push(new Object);
+        players[i].playerName = player.playerName;
+        players[i].lastDartThrown = eval(player.lastDartThrown);
+        players[i].rounds = eval(player.rounds);
+        players[i].scoreAfterLastRound = player.scoreAfterLastRound;
+        i++;
+    });
+    
+    var state = {
+        "players": players,
+        "playerTurn": this.playerTurn,
+        "playerNames": this.playerNames,
+        "round": this.round,
+        "winner": this.winner
+    }
+    
+    return JSON.stringify(state);
+}
+
+Game_01.loadState = function(jsonState) {
+    var state = JSON.parse(jsonState);
+    var game = new Game_01(state.playerNames, 3);
+    var i = 0;
+    state.players.forEach(function(player) {
+        game.players[i].lastDartThrown = player.lastDartThrown;
+        game.players[i].rounds = player.rounds;
+        game.players[i].scoreAfterLastRound = player.scoreAfterLastRound;
+        i++;     
+    });  
+    
+    game.playerTurn = state.playerTurn;
+    game.round = state.round;
+    game.winner = state.winner;
+    
+    return game;
+}
+
+module.exports = Game_01;

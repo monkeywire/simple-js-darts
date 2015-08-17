@@ -9,3 +9,4 @@ if(!Array.prototype.prev) {
         return this[this.length - 2];
     }
 }
+

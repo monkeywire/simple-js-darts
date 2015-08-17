@@ -4,6 +4,7 @@
  * Round is a member of the player class so that
  * each player keeps track of it's own rounds.
  */
+require("./js_extensions");
 
 function Round() {
     this.darts = new Array();
@@ -41,3 +42,5 @@ Round.RoundException = function(msg) {
     this.message = msg;
     this.name = "RoundExcetpion";
 }
+
+module.exports = Round;
