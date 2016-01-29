@@ -28,7 +28,7 @@ Game_01.prototype.playerScore = function(player) {
     player.rounds.forEach(function(round) {
         var newScore = score + round.score();
         if((newScore < (that.gameScore - 1)) || (newScore == that.gameScore && doubleThrown)) {
-            score += newScore;
+            score = newScore;
         }
     })
     return score;
